@@ -1,0 +1,70 @@
+﻿@model WebSigma.Models.ViewModels.VisitorViewModel
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+<script>
+    
+        
+</script>
+
+<div class="row justify-content-center">
+    <div>
+
+    </div>
+    <div class="col-lg-8 text-center">
+        <div>
+            <img src="~/Images/sigma-logo.png" class="img-fluid" alt="logo">
+        </div>
+        <br />
+        <h2 style="">Prueba de desarrollo Sigma</h2>
+        <br />
+        <p style="color:#747172;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </p>
+    </div>
+
+</div>
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <img src="~/Images/sigma-image.png" class="img-fluid" alt="logo">
+    </div>
+    <div class="col-lg-6">
+        <div class="card" @*style="width: 18rem;"*@>
+            <div class="card-body">
+                <form action="Nuevo" method="post">
+                    @using (Html.BeginForm("Nuevo", "Visitor", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label for="State">Departamento*</label>
+                            <select class="form-control" id="State" size="1" onchange="makeSubmenu(this.value)">
+                                <option value="uno" selected="selected">uno</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="City">Ciudad*</label>
+                            <select class="form-control" id="City">
+                                <option value="dos" selected="selected">Please select Country first</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(d => d.Name)
+                            @Html.TextBoxFor(d => d.Name, "Nombre*", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Name, null, new { @class = "danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(d => d.Email)
+                            @Html.TextBoxFor(d => d.Email, "Correo*", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Email, null, new { @class = "danger", placeholder = "pepitodejesus@gmail.com" })
+
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-circle" style="border-color: hotpink;background-color:hotpink; border-radius:15px;" value="enviar">ENVIAR</button>}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
