@@ -22,9 +22,12 @@ namespace WebSigma.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Entity<ViewModels.VisitorViewModel>().ToTable("Visitor");
         }
-    
+
+
         public virtual DbSet<Visitor> Visitor { get; set; }
+
+        public System.Data.Entity.DbSet<WebSigma.Models.ViewModels.VisitorViewModel> VisitorViewModels { get; set; }
     }
 }

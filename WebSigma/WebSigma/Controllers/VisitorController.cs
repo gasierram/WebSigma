@@ -21,19 +21,19 @@ namespace WebSigma.Controllers
         //public async Task<ActionResult> Index()
         public ActionResult Index()
         {
-            State product = null;
-            var stateOptions = new SelectList(jsonstate);
-            ViewBag.States = stateOptions;
+
+            //var stateOptions = new SelectList(new {"juan", "daniel" });
+            //ViewBag.States = stateOptions;
 
             return View();
         }
 
-        public List<State> GetStates()
+        public async Task<List<State>> GetStates()
         {
             var httpClient = new HttpClient();
-            var json = httpClient.GetStringAsync("https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json");
+            var json = await httpClient.GetStringAsync("https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json");
             JsonConvert.SerializeObject(json);
-            var log = JsonConvert.DeserializeObject<State>(json);
+            var log = JsonConvert.DeserializeObject<List<State>>(json);
             return log;
         }
 
