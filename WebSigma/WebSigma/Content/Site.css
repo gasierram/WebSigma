@@ -23,7 +23,11 @@ select,
 textarea {
     max-width: 280px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 h2{
     font-family: 'Roboto', sans-serif;
+}
+
+formulario {
+    font-family: 'Roboto', sans-serif;
+    font-weight:900;
 }

@@ -4,9 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using WebSigma.Models;
 using WebSigma.Models.ViewModels;
 
@@ -15,17 +18,36 @@ namespace WebSigma.Controllers
     public class VisitorController : Controller
     {
         // GET: Visitor
-        //[HttpPost]
-        //public async Task<ActionResult> Index(VisitorViewModel model)
-        public async Task<ActionResult> Index()
+        //public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var httpClient = new HttpClient();
-            var json = await httpClient.GetStringAsync("https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json");
-            var states = JsonConvert.SerializeObject(json);
-
-
+            State product = null;
+            var stateOptions = new SelectList(jsonstate);
+            ViewBag.States = stateOptions;
 
             return View();
+        }
+
+        public List<State> GetStates()
+        {
+            var httpClient = new HttpClient();
+            var json = httpClient.GetStringAsync("https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json");
+            JsonConvert.SerializeObject(json);
+            var log = JsonConvert.DeserializeObject<State>(json);
+            return log;
+        }
+
+        static async Task<State> GetStates(string path)
+        {
+            var httpClient = new HttpClient();
+
+            State product = null;
+            HttpResponseMessage response = await httpClient.GetAsync(path);
+            if (response.IsSuccessStatusCode)
+            {
+                product = await response.Content.ReadAsAsync<State>();
+            }
+            return product;
         }
 
         [HttpPost]
@@ -52,12 +74,8 @@ namespace WebSigma.Controllers
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }
-
-
     }
-
 }
