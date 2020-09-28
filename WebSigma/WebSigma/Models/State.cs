@@ -8,6 +8,6 @@ namespace WebSigma.Models
     public class State
     {
         public string Name { get; set; }
-        public string[] Cities { get; set; }
+        public IList<string> Cities { get; set; }
     }
 }

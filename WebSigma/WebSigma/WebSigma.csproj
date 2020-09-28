@@ -224,6 +224,8 @@
     <Content Include="Fonts\Roboto-Regular.ttf" />
     <Content Include="Fonts\Roboto-Thin.ttf" />
     <Content Include="Fonts\Roboto-ThinItalic.ttf" />
+    <Content Include="departamentos.json" />
+    <Content Include="colombia.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -332,6 +334,7 @@
     <Content Include="Views\Visitor\Index.cshtml" />
     <Content Include="Views\Visitor\Nuevo.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Confirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
