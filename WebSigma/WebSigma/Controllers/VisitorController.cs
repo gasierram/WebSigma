@@ -20,51 +20,28 @@ namespace WebSigma.Controllers
         // GET: Visitor
         //public async Task<ActionResult> Index()
         public ActionResult Index()
-<<<<<<< HEAD
         {
-            State product = null;
-            var stateOptions = new SelectList(jsonstate);
-            ViewBag.States = stateOptions;
 
             return View();
         }
 
-        public List<State> GetStates()
-        {
-            var httpClient = new HttpClient();
-            var json = httpClient.GetStringAsync("https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json");
-            JsonConvert.SerializeObject(json);
-            var log = JsonConvert.DeserializeObject<State>(json);
-            return log;
-        }
+        //public List<State> GetStates()
+        //{
+        //    //var httpClient = new HttpClient();
+        //    //var json = httpClient.GetStringAsync("https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json");
+        //    //JsonConvert.SerializeObject(json);
+        //    //var log = JsonConvert.DeserializeObject<State>(json);
+        //    //return log;
+        //}
+
+
+
 
         static async Task<State> GetStates(string path)
         {
             var httpClient = new HttpClient();
 
-=======
-        {
 
-            //var stateOptions = new SelectList(new {"juan", "daniel" });
-            //ViewBag.States = stateOptions;
-
-            return View();
-        }
-
-        public async Task<List<State>> GetStates()
-        {
-            var httpClient = new HttpClient();
-            var json = await httpClient.GetStringAsync("https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json");
-            JsonConvert.SerializeObject(json);
-            var log = JsonConvert.DeserializeObject<List<State>>(json);
-            return log;
-        }
-
-        static async Task<State> GetStates(string path)
-        {
-            var httpClient = new HttpClient();
-
->>>>>>> master
             State product = null;
             HttpResponseMessage response = await httpClient.GetAsync(path);
             if (response.IsSuccessStatusCode)

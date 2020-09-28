@@ -7,27 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebSigma.Models
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using WebSigma.Models;
+
+public partial class SIGMAEntities : DbContext
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class SIGMAEntities : DbContext
+    public SIGMAEntities()
+        : base("name=SIGMAEntities")
     {
-        public SIGMAEntities()
-            : base("name=SIGMAEntities")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ViewModels.VisitorViewModel>().ToTable("Visitor");
-        }
-
-
-        public virtual DbSet<Visitor> Visitor { get; set; }
-
-        public System.Data.Entity.DbSet<WebSigma.Models.ViewModels.VisitorViewModel> VisitorViewModels { get; set; }
     }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public virtual DbSet<Visitor> Visitor { get; set; }
 }
