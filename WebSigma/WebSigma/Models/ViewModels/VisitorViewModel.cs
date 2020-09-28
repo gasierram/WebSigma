@@ -26,5 +26,7 @@ namespace WebSigma.Models.ViewModels
         [StringLength(50)]
         [Display(Name = "Ciudad*")]
         public string City { get; set; }
+
+        public List<State> States { get; set; }
     }
 }

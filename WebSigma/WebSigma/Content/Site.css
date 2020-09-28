@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 20px;
     font-family: 'Roboto', sans-serif;
 }
@@ -23,11 +23,41 @@ select,
 textarea {
     max-width: 280px;
 }
-h2{
+h3 {
     font-family: 'Roboto', sans-serif;
+    /*font-size: 15px;*/
+    font-weight: bold;
+    /*letter-spacing: -1px;*/
+    color:black;
 }
 
-formulario {
+.formulario {
     font-family: 'Roboto', sans-serif;
     font-weight:900;
+    border-radius:15px!important;
+    border-color:white;
+}
+
+.parrafo {
+    font-family: 'Roboto', sans-serif;
+    color: #747172;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: bold;
+}
+.logo{
+    height:64px!important;
+}
+
+.boton {
+    border-color: #e03b65;
+    background-color: #e03b65;
+    border-radius: 15px;
+}
+
+.boton:focus, .boton.focus{
+    border-color: white!important;
+    background-color: white!important;
+    color: #e03b65!important;
+    border-radius: 15px;
 }
